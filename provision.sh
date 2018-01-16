@@ -6,7 +6,7 @@ DB_USER=$3
 DB_PASSWORD=$4
 TEST_DB_NAME=$5
 DJANGO_SETTINGS_MODULE=$6
-DJANGO_REQUIREMENTS=$7
+PROJECT_REQUIREMENTS=$7
 
 # fix possible locale issues
 echo "# Locale settings
@@ -157,4 +157,4 @@ cd /vagrant
 python3.6 -m venv venv
 source venv/bin/activate
 pip3 install -U setuptools pip
-pip3 install -r $DJANGO_REQUIREMENTS
+pip3 install -r $PROJECT_REQUIREMENTS

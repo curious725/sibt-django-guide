@@ -30,10 +30,10 @@ Vagrant.configure("2") do |config|
     dev.vm.hostname = "django-dev"
 
     django_settings_module = config.jsonconfig.get "dev_django_settings_module"
-    django_requirements = config.jsonconfig.get "dev_django_requirements"
+    project_requirements = config.jsonconfig.get "dev_project_requirements"
 
     provisioning(dev, [db_root_password,db_name,db_user,db_password,
-      test_db_name,django_settings_module,django_requirements])
+      test_db_name,django_settings_module,project_requirements])
 
     dev.vm.network :forwarded_port, host: 8000, guest: 8000, host_ip: "127.0.0.1"
   end
