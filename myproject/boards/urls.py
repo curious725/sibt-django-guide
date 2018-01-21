@@ -7,5 +7,5 @@ urlpatterns = [
     # ex: /boards/
     url(r'^$', views.home, name='home'),
     # ex: /boards/3
-    url(r'^(?P<pk>\d+)/$', views.board_topic, name='board_topics'),
+    url(r'^(?P<pk>\d+)/$', views.board_topics, name='board_topics'),
 ]

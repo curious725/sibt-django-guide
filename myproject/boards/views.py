@@ -9,7 +9,7 @@ def home(request):
     )
 
 
-def board_topic(request, pk):
+def board_topics(request, pk):
     board = Board.objects.get(pk=pk)
     return render(
         request, 'boards/topics.html', {'board': board}
