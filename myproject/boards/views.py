@@ -7,3 +7,10 @@ def home(request):
     return render(
         request, 'boards/home.html', {'boards': boards}
     )
+
+
+def board_topic(request, pk):
+    board = Board.objects.get(pk=pk)
+    return render(
+        request, 'boards/topics.html', {'board': board}
+    )
