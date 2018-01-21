@@ -1,20 +1,18 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>{{ board.name }}</title>
-  <link rel="stylesheet" href="{% static 'css/boards/bootstrap.min.css' %}">
-</head>
-<body>
-  <div class="container">
-    <ol class="breadcrumb my-4">
-      <li class="breadcrumb-item">
-        <a href="{% url 'home' %}">Boards</a>
-      </li>
-      <li class="breadcrumb-item active">{{ board.name }}</li>
-    </ol>
-  </div>
+{% extends 'boards/base.html' %}
 
-</body>
-</html>
+{% block title %}
+  {{ board.name }} - {{ block.super }}
+{% endblock title %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item">
+    <a href="{% url 'home' %}">Boards</a>
+  </li>
+  <li class="breadcrumb-item active">
+    {{ board.name }}
+  </li>
+{% endblock breadcrumb %}
+
+{% block content %}
+  <!-- just leaving it empty for now. we will add here soon. -->
+{% endblock content %}
