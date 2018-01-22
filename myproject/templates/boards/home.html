@@ -1,41 +1,36 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Boards</title>
-  <link rel="stylesheet" href="{% static 'css/boards/bootstrap.min.css' %}">
-</head>
-<body>
-  <div class="container">
-    <ol class="breadcrumb my-4">
-      <li class="breadcrumb-item active">Boards</li>
-    </ol>
+{% extends 'boards/base.html' %}
 
-    <table class="table">
-      <thead class="thead-inverse">
-        <tr>
-          <th>Board</th>
-          <th>Posts</th>
-          <th>Topics</th>
-          <th>Last Post</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for board in boards %}
-        <tr>
-          <td>
-            {{ board.name }}
-            <small class="text-muted d-block">{{ board.description }}</small>
-          </td>
-          <td class="align-middle">0</td>
-          <td class="align-middle">0</td>
-          <td></td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+{% block title %}
+  {{ block.super }}
+{% endblock title %}
 
-  </div>
-</body>
-</html>
+{% block breadcrumb %}
+  <li class="breadcrumb-item active">Boards</li>
+{% endblock breadcrumb %}
+
+{% block content %}
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Board</th>
+        <th>Posts</th>
+        <th>Topics</th>
+        <th>Last Post</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for board in boards %}
+      <tr>
+        <td>
+          <a href="{% url 'boards:board_topics' board.pk %}">{{ board.name }}</a>
+          <small class="text-muted d-block">{{ board.description }}</small>
+        </td>
+        <td class="align-middle">0</td>
+        <td class="align-middle">0</td>
+        <td></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock content %}
+
