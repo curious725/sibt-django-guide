@@ -31,3 +31,12 @@ class BoardTopicTests(TestCase):
         self.assertContains(
             response, 'href="{0}"'.format(homepage_url)
         )
+
+    def test_board_topics_page_contains_link_to_new_topic(self):
+        new_topic_url = reverse('boards:new_topic', kwargs={
+                                'pk': self.board.pk})
+        url = reverse('boards:board_topics', kwargs={'pk': self.board.pk})
+        response = self.client.get(url)
+        self.assertContains(
+            response, 'href="{0}"'.format(new_topic_url)
+        )
