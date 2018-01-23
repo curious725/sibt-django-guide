@@ -16,6 +16,12 @@ class Topic(models.Model):
     board = models.ForeignKey(Board, related_name='topics')
     starter = models.ForeignKey(User, related_name='topics')
 
+    def __str__(self):
+        return "topic '{subject}' on {board} board".format(
+            subject=self.subject,
+            board=self.board
+        )
+
 
 class Post(models.Model):
     message = models.TextField(max_length=4000)
