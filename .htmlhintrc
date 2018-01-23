@@ -12,7 +12,7 @@
   "title-require": true,
   "attr-value-not-empty": true,
   "alt-require": true,
-  "id-class-value": "dash",
+  "id-class-value": "dash,underline mode",
   "doctype-html5": true,
   "inline-script-disabled": true,
   "space-tab-mixed-disabled": "space2"
