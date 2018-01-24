@@ -1,5 +1,7 @@
 {% extends 'boards/base.html' %}
 
+
+
 {% block title %}
   Start a New Topic - {{ block.super }}
 {% endblock title %}
@@ -19,18 +21,12 @@
 {% endblock breadcrumb %}
 
 {% block content %}
-  <form method="post">
-  {% csrf_token %}
-  <div class="form-group">
-    <label for="id_subject">Subject</label>
-    <input type="text" class="form-control" id="id_subject" name="subject">
-  </div>
-  <div class="form-group">
-    <label for="id_message">Message</label>
-    <textarea class="form-control" id="id_message" name="message" rows="5">
-    </textarea>
-  </div>
-  <button type="submit" class="btn btn-success">Post</button>
+  <form method="post" novalidate="novalidate">
+    {% csrf_token %}
+
+    {% include 'boards/includes/form.html' %}
+
+    <button type="submit" class="btn btn-success">Post</button>
 
   </form>
 {% endblock content %}
