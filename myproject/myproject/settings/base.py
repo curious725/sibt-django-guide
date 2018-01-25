@@ -53,6 +53,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts.apps.AccountsConfig',
     'boards.apps.BoardsConfig',
     'widget_tweaks',
     'django.contrib.admin',
