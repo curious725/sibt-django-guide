@@ -5,11 +5,12 @@ from ..views import signup
 
 
 class SignUpTests(TestCase):
+    def setUp(self):
+        url = reverse('accounts:signup')
+        self.response = self.client.get(url)
 
     def test_signup_view(self):
-        url = reverse('accounts:signup')
-        response = self.client.get(url)
-        self.assertTrue(response.status_code, 200)
+        self.assertTrue(self.response.status_code, 200)
 
     def test_signup_url_resolves_signup_view(self):
         view = resolve('/accounts/signup/')
