@@ -16,6 +16,16 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <a href="{% url 'home' %}" class="navbar-brand">Boards</a>
+      <button class="navbar-toggler" type="button" data-toogle="collapse"
+        data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false"
+        aria-label="Toogle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainMenu">
+        <ul class="navbar-nav ml-auto">
+          <a href="#" class="nav-link">{{ user.username }}</a>
+        </ul>
+      </div>
     </div>
   </nav>
 
