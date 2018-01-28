@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
+{% block stylesheet %}
+  <link rel="stylesheet" href="{% static 'accounts/css/accounts.css' %}">
+{% endblock stylesheet %}
+
 {% block body %}
   <div class="container">
     <h2>Sign up</h2>
