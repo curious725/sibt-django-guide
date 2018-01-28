@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'accounts/base_accounts.html' %}
 
 {% load static %}
 
@@ -6,11 +6,7 @@
   <link rel="stylesheet" href="{% static 'accounts/css/accounts.css' %}">
 {% endblock stylesheet %}
 
-{% block body %}
-  <div class="container">
-    <h1 class="text-center logo my-4">
-      <a href="{% url 'home' %}">Boards</a>
-    </h1>
+{% block content %}
 
   <div class="row justify-content-center">
     <div class="col-lg-8 col-md-10 col-sm-12">
@@ -31,5 +27,4 @@
   </div>
 
 
-  </div>
-{% endblock body %}
+{% endblock content %}
