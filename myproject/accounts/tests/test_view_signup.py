@@ -1,9 +1,9 @@
 from django.test import TestCase
 from django.urls import reverse, resolve
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 from ..views import signup
+from ..forms import SignUpForm
 
 
 class SignUpTests(TestCase):
@@ -24,7 +24,7 @@ class SignUpTests(TestCase):
     def test_signup_template_contains_form(self):
         form = self.response.context.get('form')
         self.assertIsInstance(
-            form, UserCreationForm
+            form, SignUpForm
         )
 
 
