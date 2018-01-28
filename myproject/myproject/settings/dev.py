@@ -18,3 +18,5 @@ DEBUG_TOOLBAR_CONFIG = {
     ],
     'SHOW_TEMPLATE_CONTEXT': True,
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
