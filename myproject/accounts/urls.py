@@ -55,5 +55,18 @@ urlpatterns = [
             template_name='accounts/password_reset_complete.html'
         ),
         name='password_reset_complete'),
-
+    url(
+        r'^settings/password/$',
+        PasswordChangeView.as_view(
+            template_name='password_change.html'
+        ),
+        name='password_change'
+    ),
+    url(
+        r'^settings/password/done/$',
+        PasswordChangeDoneView.as_view(
+            template_name='password_change_done.html'
+        ),
+        name='password_change_done'
+    ),
 ]
