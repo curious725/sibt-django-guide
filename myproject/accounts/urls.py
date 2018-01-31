@@ -58,14 +58,14 @@ urlpatterns = [
     url(
         r'^settings/password/$',
         PasswordChangeView.as_view(
-            template_name='password_change.html'
+            template_name='accounts/password_change.html'
         ),
         name='password_change'
     ),
     url(
         r'^settings/password/done/$',
         PasswordChangeDoneView.as_view(
-            template_name='password_change_done.html'
+            template_name='accounts/password_change_done.html'
         ),
         name='password_change_done'
     ),
