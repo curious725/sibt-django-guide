@@ -1,4 +1,4 @@
-{% extends 'boards/base.html' %}
+{% extends 'base.html' %}
 
 
 
@@ -24,7 +24,7 @@
   <form method="post" novalidate="novalidate">
     {% csrf_token %}
 
-    {% include 'boards/includes/form.html' %}
+    {% include 'includes/form.html' %}
 
     <button type="submit" class="btn btn-success">Post</button>
 

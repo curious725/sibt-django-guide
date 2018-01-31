@@ -53,6 +53,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts.apps.AccountsConfig',
     'boards.apps.BoardsConfig',
     'widget_tweaks',
     'django.contrib.admin',
@@ -146,6 +147,13 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOGIN_URL = 'accounts:login'
+
+# Login redirection
+LOGIN_REDIRECT_URL = 'home'
+
+# Logout redirection
+LOGOUT_REDIRECT_URL = 'home'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
