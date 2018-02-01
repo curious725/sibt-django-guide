@@ -7,6 +7,8 @@
 # you're doing.
 Vagrant.configure("2") do |config|
 
+  config.ssh.username = "ubuntu"
+
   config.jsonconfig.load_json "secrets.json", nil, true
 
   db_root_password = config.jsonconfig.get "db_root_password"
@@ -40,7 +42,24 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "prod" do |prod|
 
+    django_settings = config.jsonconfig.get "prod_django_settings_module"
+    django_requirements = config.jsonconfig.get "prod_project_requirements"
+
+    provisioning(prod, [db_root_password,db_name,db_user,db_password,
+      test_db_name,django_settings,django_requirements])
+
+      prod.vm.provider :digital_ocean do |provider, override|
+        override.ssh.private_key_path = '~/.ssh/id_rsa'
+        override.vm.box = 'digital_ocean'
+        override.vm.box_url = "https://github.com/devopsgroup-io/vagrant-digitalocean/raw/master/box/digital_ocean.box"
+        override.nfs.functional = false
+        provider.token = config.jsonconfig.get "do_token"
+        provider.image = 'ubuntu-16-04-x64'
+        provider.region = 'fra1'
+        provider.size = 's-1vcpu-1gb'
+      end
   end
+
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
